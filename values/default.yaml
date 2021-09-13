@@ -13,10 +13,24 @@ crd:
 
 jaeger:
   # Specifies whether Jaeger instance should be created
-  create: false
+  create: true
   # namespace where Jaeger resource should be created default to .Release.Namespace
-  namespace:
-  spec: {}
+  namespace: default
+  spec:
+    strategy: production
+    # collector:
+    #   maxReplicas: 3
+    #   resources:
+    #     limits:
+    #       cpu: 100m
+    #       memory: 128Mi
+    storage:
+      type: elsticsearch
+      options:
+        es:
+          server-urls: http://elasticsearch:9200
+          username: admin
+          password: tracingdbpass
 
 rbac:
   # Specifies whether RBAC resources should be created
