@@ -18,19 +18,19 @@ jaeger:
   namespace: default
   spec:
     strategy: production
-    # collector:
-    #   maxReplicas: 3
-    #   resources:
-    #     limits:
-    #       cpu: 100m
-    #       memory: 128Mi
-    storage:
-      type: elsticsearch
-      options:
-        es:
-          server-urls: https://jaegerdb-es-http:9200
-          username: elastic
-          password: zky77TN68mKi0X51Vl409cnL
+    collector:
+      maxReplicas: 5
+      resources:
+        limits:
+          cpu: 100m
+          memory: 128Mi
+      storage:
+        type: elsticsearch
+        options:
+          es:
+            server-urls: https://jaegerdb-es-http:9200
+            username: elastic
+            password: zky77TN68mKi0X51Vl409cnL
 
 rbac:
   # Specifies whether RBAC resources should be created
