@@ -20,11 +20,12 @@ jaeger:
     strategy: production
     storage:
       type: elasticsearch
-      options:
-        es:
-          server-urls: https://jaegerdb-es-http.default.svc:9200
-          username: elastic
-          password: fO6276hd341TOg23JK4srswU
+      # will rely on the Jaeger op. to use the ES op. for setting up the datastore
+      # options:
+      #   es:
+      #     server-urls: https://jaegerdb-es-http.default.svc:9200
+      #     username: elastic
+      #     password: fO6276hd341TOg23JK4srswU
 
 rbac:
   # Specifies whether RBAC resources should be created
