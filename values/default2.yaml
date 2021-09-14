@@ -12,29 +12,23 @@ crd:
   install: true
 
 jaeger:
+  # Specifies whether Jaeger instance should be created
   create: true
+  # namespace where Jaeger resource should be created default to .Release.Namespace
   namespace: default
   spec:
     strategy: production
     storage:
       type: elasticsearch
-      options:
-        es:
-          server-urls: https://jaegerdb-es-http.default.svc:9200
-          index-prefix: jaeger
-          tls:
-            ca: /es/certificates/ca.crt
-      secretName: jaeger-secret
-    volumeMounts:
-      - name: certificates
-        mountPath: /es/certificates/
-        readOnly: true
-    volumes:
-      - name: certificates
-        secret:
-          secretName: jaegerdb-es-http-certs-public
+      # will rely on the Jaeger op. to use the ES op. for setting up the datastore
+      # options:
+      #   es:
+      #     server-urls: https://jaegerdb-es-http.default.svc:9200
+      #     username: elastic
+      #     password: fO6276hd341TOg23JK4srswU
 
 rbac:
+  # Specifies whether RBAC resources should be created
   create: true
   pspEnabled: false
   clusterRole: true
