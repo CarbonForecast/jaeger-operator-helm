@@ -24,7 +24,7 @@ jaeger:
         es:
           server-urls: https://jaegerdb-es-http.default.svc:9200
           username: elastic
-          password: zky77TN68mKi0X51Vl409cnL
+          password: fO6276hd341TOg23JK4srswU
 
 rbac:
   # Specifies whether RBAC resources should be created
