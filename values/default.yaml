@@ -22,7 +22,7 @@ jaeger:
       type: elasticsearch
       options:
         es:
-          server-urls: https://jaegerdb-es-http:9200
+          server-urls: https://jaegerdb-es-http.default.svc:9200
           username: elastic
           password: zky77TN68mKi0X51Vl409cnL
 
